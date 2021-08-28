@@ -229,6 +229,58 @@ a:hover, a:focus {
 .is-sticky .sticky.dark-header {
 	background: #202020;
 }
+
+.sp-area {
+}
+.container {
+}
+.sp-na {
+	width: 100%;
+	flex-wrap: wrap;
+}
+.row {
+}
+.sp-img_area {
+}
+.zoompro-border {
+	width: 500px;
+	height: 500px;
+	margin: 20px 0;
+}
+.zoompro-border img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.zoompro {
+}
+.sp-img_slider {
+	width: 500px;
+	height: 200px;
+	margin: 0 auto;
+	text-align: center;
+}
+.sp-img_slider a{
+	display: flex;
+	margin: 10px;
+	max-width: 100px;
+	height: 100px;
+}
+.sp-img_slider a img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.for_mess {
+	padding: 20px 0 0 50px;
+}
+.sp-content {
+}
+.sp-heading {
+	word-break: break-word;
+}
+
+
 /*=======================================================
       SECTION
 ========================================================*/

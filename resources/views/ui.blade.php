@@ -27,6 +27,7 @@
 	<link rel="stylesheet" href="/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/slick.css">
 	<link rel="stylesheet" href="/css/responsive.css">
 
 	<!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
@@ -216,6 +217,8 @@
 	<!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
 	<script type="text/javascript" src="/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
 	<script type="text/javascript" src="/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+	<script src="/js/jquery.elevateZoom-3.0.8.min.js"></script>
+	<script src="/js/slick.min.js"></script>
 	<script src="/js/zap.js"></script>
 	<script src="/js/script.js"></script>
 	<script src="/js/cookie.js"></script>

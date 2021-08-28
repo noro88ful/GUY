@@ -27,6 +27,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'usercheck'], function () {
 	Route::get('/adm_home_2', [App\Http\Controllers\AdminController::class, 'adm_home_2'])->name('adm_home_2');
 	Route::get('/adm_info', [App\Http\Controllers\AdminController::class, 'adm_info'])->name('adm_info');
 	Route::get('/adm_social', [App\Http\Controllers\AdminController::class, 'adm_social'])->name('adm_social');
+	Route::get('/adm_galleries_images/{id}', [App\Http\Controllers\AdminController::class, 'adm_galleries_images'])->name('adm_galleries_images');
 });
 
 Route::get('/',[App\Http\Controllers\IndexController::class, 'showindex']);
@@ -52,7 +53,7 @@ Route::post('/add_table_field',[App\Http\Controllers\AdminController::class, 'ad
 // Route::post('/contactmessage',[App\Http\Controllers\MailController::class, 'contactmessage']);
 // Route::post('/searchblog',[App\Http\Controllers\SearchController::class, 'searchblog']);
 // Route::post('/sendfeed',[App\Http\Controllers\IndexController::class, 'sendfeed']);
-// Route::post('/add_tour',[App\Http\Controllers\AdminController::class, 'add_tour']);
+Route::post('/add_gallery',[App\Http\Controllers\AdminController::class, 'add_gallery']);
 // Route::post('/ordertour',[App\Http\Controllers\AdminController::class, 'ordertour']);
 // Route::post('/messageguest',[App\Http\Controllers\AdminController::class, 'messageguest']);
 // Route::post('/subscribesite',[App\Http\Controllers\AdminController::class, 'subscribesite']);

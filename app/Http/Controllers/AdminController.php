@@ -8,6 +8,7 @@ use App\Models\Contact;
 use App\Models\Contact_top;
 use App\Models\Footer;
 use App\Models\Gallery;
+use App\Models\Galleryimage;
 use App\Models\Home_1;
 use App\Models\Home_2;
 use App\Models\Info;
@@ -237,8 +238,19 @@ class AdminController extends Controller
 	}
 	public function adm_gallery(){
 		$galleries = Gallery::take(25)->paginate(25);
+		foreach ($galleries as $v) {
+			if(Galleryimage::where('gallery_id',$v->id)->first()){
+				$v->check = 1;
+			} else {
+				$v->check = 0;
+			}
+		}
 		$works = Work::all();
 		return view('Admin/adm_gallery',compact('galleries','works'));
+	}
+	public function adm_galleries_images(Request $request){
+		$galleryimages = Galleryimage::where('gallery_id',$request->id)->take(25)->paginate(25);
+		return view('Admin/adm_galleries_images',compact('galleryimages'));
 	}
 	public function adm_home_1(){
 		$homes_1 = Home_1::all();
@@ -259,5 +271,38 @@ class AdminController extends Controller
 	public function adm_social(){
 		$socials = Social::all();
 		return view('Admin/adm_social',compact('socials'));
+	}
+	public function add_gallery(Request $request){
+		$data = $request->all();
+		$gallery = new Gallery;
+		$pathGallery = public_path().'/files/Gallery/';
+		if($request->filter){$gallery->filter = $request->filter;}
+		if($request->topic){$gallery->topic = $request->topic;}
+		if($request->text){$gallery->description = $request->text;}
+		$gallery->save();
+		$gallery_id = $gallery->id;
+		if($request->hasfile('filenames')){
+			$allimages = $request->filenames;
+			$count = -1;
+			foreach ($allimages as $file){
+				$count++;
+				$galleryimage = new Galleryimage;
+				$characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+				$pin = mt_rand(1000000, 9999999).mt_rand(1000000, 9999999).$characters[rand(0, strlen($characters) - 1)];
+				$string = str_shuffle($pin);
+				$name = time().$string.'.'.$file->extension();
+				File::move($file, $pathGallery.$name);
+				$galleryimage->gallery_id = $gallery_id;
+				$galleryimage->image = $name;
+				$galleryimage->save();
+				if($count==0){
+					$gallery->image = $name;
+					$gallery->filter = $request->filter;
+					$gallery->save();
+				}
+			}
+			File::deleteDirectory(public_path().'/files/Tour/'.Auth::user()->id.'/tempfolder/');
+		}
+		return redirect()->back();
 	}
 }

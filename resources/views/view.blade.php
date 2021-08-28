@@ -53,34 +53,36 @@
 </section>
 
 <!-- PORTFOLIO -->
-<section class="portfolio port-wrap padding-top-80 padding-bottom-80 ">
 
-	
-	<!-- PORTFOLIO ITEMS -->
-	
+<div class="sp-area">
 	<div class="container">
-		<h1 class="margin-bottom-40">{{$works[0]->work->filter}}</h1>
-		
-		<div class="items item-space row col-3 animate fadeInUp" data-wow-delay="0.4s">
-
-		@foreach($works as $work)
-			<article class="portfolio-item pf-{{$work->filter}}">
-				<div class="portfolio-image"> <a href="javascript:void(0)"> <img class="img-responsive" alt="Open Imagination"
-							src="/files/Gallery/{{$work->image}}"> </a>
-					<div class="portfolio-overlay style-4">
+			<div class="sp-na">
+				<div class="row">
+					<div class="col-lg-5 col-md-5">
+							<div class="sp-img_area">
+								<div class="zoompro-border">
+									<img class="zoompro" src="/files/Gallery/{{$work->image}}" data-zoom-image="/files/Gallery/{{$work->image}}" />
+								</div>
+								<div id="gallery" class="sp-img_slider">
+									@foreach($workimages as $i)
+										<a data-image="/files/Gallery/{{$i->image}}" data-zoom-image="/files/Gallery/{{$i->image}}">
+											<img src="/files/Gallery/{{$i->image}}">
+										</a>
+									@endforeach
+								</div>
+							</div>
+					</div>
+					<div class="col-lg-7 col-md-7 for_mess">
+						<div class="sp-content">
+							<div class="sp-heading">
+								<h4 style="padding: 0 0 10px 0;">{{$work->topic}}</h4>
+								<?php echo($work->description) ?>
+							</div>
+						</div>
 					</div>
 				</div>
-			</article>
-		@endforeach
-
-		</div>
+			</div>
 	</div>
-
-	<div class="col-lg-12">
-		<div class="pagination__number blog__pagination">
-			{{$works->links('pagination.default')}}
-		</div>
-	</div>
-</section>
+</div>
 
 @endsection('main')

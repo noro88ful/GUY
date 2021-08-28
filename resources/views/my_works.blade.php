@@ -61,7 +61,6 @@
 			<li class="tab-title filter-item"><a href="javascript:void(0)" data-filter=".pf-{{$filters->id}}">{{$filters->filter}}</a></li>
 		@endforeach
 	</ul>
-
 	<!-- PORTFOLIO ITEMS -->
 
 	<div class="container">
@@ -77,7 +76,7 @@
 								<div class="position-center-center">
 									<h3 class="no-margin">SEE MORE</h3>
 									<hr class="balck">
-									<a href="/view/{{$work->filter}}" target='_blank'><i class="fa fa-search"></i></a>
+									<a href="/view/{{$work->id}}" target='_blank'><i class="fa fa-search"></i></a>
 								</div>
 							</div>
 						@endif

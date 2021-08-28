@@ -140,3 +140,54 @@ $(document).ready(function () {
 })
 
 
+$('.zoompro').elevateZoom({
+	gallery: 'gallery',
+	galleryActiveClass: 'active'
+});
+
+$('.sp-img_slider').slick({
+	infinite: false,
+	slidesToShow: 4,
+	slidesToScroll: 1,
+	arrows: false,
+	prevArrow: '<button class="slick-prev"><i class="ion-ios-arrow-back"></i></button>',
+	nextArrow: '<button class="slick-next"><i class="ion-ios-arrow-forward"></i></button>',
+	responsive: [
+		{
+			breakpoint: 1199,
+			settings: {
+				slidesToShow: 3,
+				slidesToScroll: 1,
+			}
+		},
+		{
+			breakpoint: 991,
+			settings: {
+				slidesToShow: 2,
+				slidesToScroll: 1
+			}
+		},
+		{
+			breakpoint: 767,
+			settings: {
+				slidesToShow: 3,
+				slidesToScroll: 1
+			}
+		},
+		{
+			breakpoint: 575,
+			settings: {
+				slidesToShow: 2,
+				slidesToScroll: 1
+			}
+		},
+		{
+			breakpoint: 520,
+			settings: {
+				slidesToShow: 2,
+				slidesToScroll: 1,
+			}
+		}
+	]
+});
+

@@ -15,7 +15,7 @@ $(document).on('click', '.edit-item', function () {
 			let label = $(`<label class="adm-input_label">${th[i].innerHTML}</label>`)
 			let input = $(`<input title="${th[i].getAttribute('fname')}" type="file" value="${tds[i].getAttribute('fvalue')}" name="${th[i].getAttribute('fname')}" class="form-control">`)
 			inputs.push(label, input)
-		} else if (th[i].getAttribute('fname') == 'text' || th[i].getAttribute('fname') == 'text_EN' || th[i].getAttribute('fname') == 'text_RU') {
+		} else if (th[i].getAttribute('fname') == 'text' || th[i].getAttribute('fname') == 'text_EN' || th[i].getAttribute('fname') == 'text_RU' || th[i].getAttribute('fname') == 'description') {
 			let label = $(`<label class="adm-input_label">${th[i].innerHTML}</label>`)
 			let textarea = $(`<textarea title="${th[i].getAttribute('fname')}" id="${th[i].getAttribute('fname')}2" type="file" name="${th[i].getAttribute('fname')}" class="form-control">${tds[i].getAttribute('fvalue')}</textarea>`)
 			inputs.push(label, textarea)

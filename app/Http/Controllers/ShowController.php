@@ -8,6 +8,7 @@ use App\Models\Contact;
 use App\Models\Contact_top;
 use App\Models\Footer;
 use App\Models\Gallery;
+use App\Models\Galleryimage;
 use App\Models\Home_1;
 use App\Models\Home_2;
 use App\Models\Info;
@@ -44,8 +45,9 @@ class ShowController extends Controller
 	public function showview(Request $request){
 		$id = $request->id;
 		$sliders = Slider::all();
-		$works = Gallery::where('filter',$id)->take(24)->paginate(24);
-		return view('view',compact('works','sliders'));
+		$work = Gallery::where('id',$id)->first();
+		$workimages = Galleryimage::where('gallery_id',$id)->get();
+		return view('view',compact('work','sliders','workimages'));
 	}
 	public function showcontact(){
 		$contacts = Contact::all();
