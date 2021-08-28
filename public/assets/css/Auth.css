@@ -1,0 +1,18 @@
+/*Signup==========================================================*/
+
+.Authmessage{
+	padding: 5px 10px !important;
+	color: white;
+	margin-bottom: 0;
+	font-size: 14px !important;
+}
+
+.Autherror{background-color: red;
+	font-family: Arial, Helvetica, sans-Serif;
+	width: 100%;
+	display: block;
+}
+.Authsuccess{background-color: lightgreen;}
+.Authsended{background-color: #bb9c66;}
+.forgoterror{background-color: red;color: white;margin-bottom: 0;padding: 2px 5px !;}
+.forgosuccess{background-color: #bb9c66;color: white;margin-bottom: 0;padding: 2px 5px;}
